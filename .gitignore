@@ -1,0 +1,12 @@
+# data
+*.jsonl
+*.parquet
+*.db
+
+# embeddings / models
+*.npy
+*.pt
+
+# notebooks
+.ipynb_checkpoints/
+
