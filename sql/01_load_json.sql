@@ -23,7 +23,6 @@ SELECT
     average_rating
 FROM read_json(
     '/content/drive/MyDrive/Capstone/comemo_data/metadata.jsonl',
-    format='newline_delimited',
-    ignore_errors = true
+    format='newline_delimited'
 )
 WHERE parent_asin IS NOT NULL;
