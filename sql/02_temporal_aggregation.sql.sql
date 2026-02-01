@@ -1,13 +1,12 @@
 -- =====================================================
 -- SQL-02: Temporal Aggregation (Monthly Buckets)
--- Creates monthly product-level aggregates
 -- =====================================================
 
 CREATE OR REPLACE TABLE reviews_monthly AS
 WITH base AS (
     SELECT
         parent_asin,
-        DATE_TRUNC('month', ts) AS month_start,
+        DATE_TRUNC('month', to_timestamp(timestamp)) AS month_start,
         rating
     FROM reviews_raw
 ),
