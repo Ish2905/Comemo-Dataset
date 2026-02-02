@@ -1,6 +1,6 @@
 -- FINAL robust metadata ingestion (explicit schema, safe for dirty Amazon data)
 
-CREATE OR REPLACE TABLE metadata_raw AS
+CREATE OR REPLACE TABLE metadata_raw2 AS
 SELECT
     parent_asin,
     main_category,
