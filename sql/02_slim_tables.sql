@@ -12,8 +12,8 @@ SELECT
     store,
     price,
     average_rating,
-    rating_number,
-    images
+    rating_number
+    
 FROM read_json(
     '/content/drive/MyDrive/Capstone/comemo_data/metadata.jsonl',
     format = 'newline_delimited',
@@ -29,8 +29,8 @@ FROM read_json(
         store: 'VARCHAR',
         price: 'VARCHAR',
         average_rating: 'DOUBLE',
-        rating_number: 'BIGINT',
-        images: 'JSON'
+        rating_number: 'BIGINT'
+
     },
     ignore_errors = true
 )
