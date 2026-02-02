@@ -1,6 +1,4 @@
--- FINAL robust metadata ingestion (explicit schema, safe for dirty Amazon data)
-
-CREATE OR REPLACE TABLE metadata_raw2 AS
+CREATE TABLE metadata_raw AS
 SELECT
     parent_asin,
     main_category,
@@ -11,9 +9,8 @@ SELECT
     categories,
     store,
     price,
-    average_rating,
+    TRY_CAST(average_rating AS DOUBLE) AS average_rating,
     rating_number
-    
 FROM read_json(
     '/content/drive/MyDrive/Capstone/comemo_data/metadata.jsonl',
     format = 'newline_delimited',
@@ -28,9 +25,8 @@ FROM read_json(
         categories: 'JSON',
         store: 'VARCHAR',
         price: 'VARCHAR',
-        average_rating: 'DOUBLE',
+        average_rating: 'VARCHAR',
         rating_number: 'BIGINT'
-
     },
     ignore_errors = true
 )
